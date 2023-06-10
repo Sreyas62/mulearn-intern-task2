@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Login.css'; // Import the CSS file
-import { loginAPI } from '../../api/auth';
 
 interface LoginProps {
   handleLogin: (username: string, password: string) => void;
@@ -9,7 +8,6 @@ interface LoginProps {
 }
 
 const Login = ({ handleLogin, loggedIn }: LoginProps) => {
-  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
