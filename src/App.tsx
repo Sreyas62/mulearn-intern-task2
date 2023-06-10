@@ -11,8 +11,8 @@ const App = () => {
   useEffect(() => {
     const checkLoginStatus = async () => {
       try {
-        const response = await loginAPI.checkLoginStatus();
-        if (response.loggedIn) {
+        const { loggedIn } = await loginAPI.checkLoginStatus();
+        if (loggedIn) {
           setLoggedIn(true);
         }
       } catch (error) {
