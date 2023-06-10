@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
@@ -25,7 +25,7 @@ const App = () => {
 
   const handleLogin = async (username: string, password: string) => {
     try {
-      const response = await loginAPI.login(username, password);
+      await loginAPI.login(username, password);
       setLoggedIn(true);
     } catch (error) {
       alert('Invalid username or password');

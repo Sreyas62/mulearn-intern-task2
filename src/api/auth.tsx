@@ -33,7 +33,7 @@ export const loginAPI = {
 
 export const signupAPI = {
   signup: async (username: string, password: string) => {
-    const response = await fetch(`${BASE_URL}/register/`, {
+    const response = await fetch(`${BASE_URL}/signup/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
@@ -48,6 +48,7 @@ export const signupAPI = {
     }
   },
 };
+
 
 export const logoutAPI = {
   logout: async () => {

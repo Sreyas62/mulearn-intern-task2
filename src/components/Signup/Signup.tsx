@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Signup.css'; // Import the CSS file
+import { signupAPI } from '../../api/auth';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -9,13 +10,17 @@ const Signup = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Replace this with your user registration logic
-    const user = { name, email, username, password };
-    localStorage.setItem('user', JSON.stringify(user));
-    navigate('/login');
+    try {
+      await signupAPI.signup(username, password);
+      navigate('/login');
+    } catch (error) {
+      console.log('Error registering user:', error);
+      alert('Failed to register user');
+    }
   };
+  
 
   return (
     <div className="signup-container">
